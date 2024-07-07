@@ -1,20 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moving button | Jessica</title>
-    <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binseu</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts - Archivo Black -->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Custom Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f2f2f2; /* Light gray background */
+      color: #333; /* Dark gray text color */
+      padding-top: 60px; /* Adjust for fixed navbar */
+    }
+
+    .navbar {
+      background-color: #1D438A; /* Dark blue navbar background */
+    }
+
+    .navbar-brand, .navbar-toggler-icon {
+      color: #fff; /* White text color */
+      font-family: 'Archivo Black', sans-serif; /* Apply Archivo Black font */
+    }
+
+    .navbar-nav .nav-link {
+      color: #fff; /* White text color */
+      font-family: 'Archivo Black', sans-serif; /* Apply Archivo Black font */
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #00BFB2; /* Turquoise on hover */
+    }
+
+    .jumbotron {
+      position: relative; /* Relative positioning for overlay */
+      background-color: #1D438A; /* Dark blue */
+      color: #fff; /* White text color */
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+      border-radius: 0;
+      text-align: center; /* Center text */
+      font-family: 'Archivo Black', sans-serif; /* Apply Archivo Black font */
+      overflow: hidden; /* Hide overflow for text mask */
+    }
+
+    .jumbotron::after {
+      content: ''; /* Empty content for pseudo-element */
+      background: url('path/to/your/gif.gif') no-repeat center center / cover; /* Background image settings */
+      position: absolute; /* Absolute positioning to overlay */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      mix-blend-mode: screen; /* Blend mode for overlay effect */
+      z-index: -1; /* Behind the text */
+    }
+
+    .intro {
+      font-size: 1.5rem; /* Larger font size for impact */
+    }
+
+    #projects {
+      font-family: 'Archivo Black', sans-serif; /* Apply Archivo Black font to projects section */
+      margin-top: 40px; /* Additional spacing */
+    }
+
+    #projects h2 {
+      text-align: center; /* Center the heading */
+      margin-bottom: 30px; /* Add space below the heading */
+    }
+
+    #projects .project h3 {
+      font-family: 'Archivo Black', sans-serif; /* Apply Archivo Black font to project headings */
+    }
+
+    #projects .project p {
+      font-size: 1.1rem; /* Adjust font size for project descriptions */
+    }
+
+    #contact {
+      font-family: 'Archivo Black', sans-serif; /* Apply Archivo Black font to contact section */
+      margin-top: 40px; /* Additional spacing */
+      padding: 20px;
+      background-color: #fff; /* White background */
+      border: 1px solid #ccc; /* Light gray border */
+      border-radius: 5px;
+      text-align: center; /* Center align text */
+    }
+
+    .contact-info {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-info i {
+      margin-right: 10px;
+      color: #1D438A; /* Dark blue color for icons */
+    }
+
+    .contact-info p {
+      color: #1D438A; /* Dark blue color for contact information text */
+      margin-bottom: 5px; /* Space between lines */
+    }
+
+    .contact-info a {
+      color: #1D438A; /* Dark blue color for social media links */
+      text-decoration: none; /* Remove underline */
+      margin-right: 10px; /* Space between icons */
+    }
+
+    .contact-info a:hover {
+      color: #00BFB2; /* Turquoise on hover */
+    }
+
+    .img-frame {
+      border: 1px solid #ddd; /* Add border to the image frame */
+      padding: 5px; /* Add some padding inside the frame */
+      margin-bottom: 15px; /* Space between the image and the description */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add shadow to the image frame */
+    }
+  </style>
 </head>
 <body>
-    <div class="wrapper">
-        <h2 class="question">Do you love me?</h2>
-        <img class="gif" alt="gif" src="https://media0.giphy.com/media/t8Lo2mPAzOcmVTgtGe/giphy.gif?cid=6c09b952231uyrnduhdsf4wqnxz03rv9wx3ni5sm0zolrxz3&ep=v1_stickers_related&rid=giphy.gif&ct=s"/>
-        <div class="btn-group">
-            <button class="yes-btn">Yes</button>
-            <button class="no-btn">No</button>
-        </div>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Bins</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+      </ul>
     </div>
-    <script src="script.js"></script>
+  </div>
+</nav>
+
+<div id="about" class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Bins</h1>
+    <p class="intro">Aspiring Web Developer!</p>
+  </div>
+</div>
+
+<div id="projects" class="container">
+  <h2>Projects</h2>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="project">
+        <h3>CAFE VINCE</h3>
+        <div class="img-frame">
+          <img src="/Bins/image/cafebins.png" class="img-fluid" alt="Project Image 1">
+        </div>
+        <p>Programming language used: HTML, CSS, JavaScript.</p>
+        <a href="https://cafebinseu.github.io/Cafe-Vince/" target="_blank">View Project</a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="project">
+        <h3>Project Title 2</h3>
+        <div class="img-frame">
+          <img src="path_to_image2.jpg" class="img-fluid" alt="Project Image 2">
+        </div>
+        <p>Description of the project. Technologies used: Python, Django, PostgreSQL.</p>
+      </div>
+    </div>
+    <!-- Add more projects as needed -->
+  </div>
+</div>
+<div id="projects" class="container">
+  <h2>Certifications</h2>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="project">
+        <h3>INTRO TO HTML</h3>
+        <div class="img-frame">
+          <img src="/Bins/image/INTRO TO HTML CERTIFICATE.png" class="img-fluid" alt="Project Image 1">
+        </div>
+        <p>Indroduction in HTML Certificate.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="project">
+        <h3>INTRO TO CSS</h3>
+        <div class="img-frame">
+          <img src="/Bins/image/introduction to CSS.PNG" class="img-fluid" alt="Project Image 2">
+        </div>
+        <p>Indroduction in CSS Certificate.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="project">
+        <h3>INTRO IN E-COMMERCE WEBSITE</h3>
+        <div class="img-frame">
+          <img src="/Bins/image/Intro to ECommerce Website Certificate.jpg" class="img-fluid" alt="Project Image 2">
+        </div>
+        <p>Indroduction in E - Commerce Website Certificate.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="project">
+        <h3>INTRODUCTION IN NODE JS</h3>
+        <div class="img-frame">
+          <img src="/Bins/image/CERTIFICATE.png" class="img-fluid" alt="Project Image 2">
+        </div>
+        <p>Indroduction in Node Js Certificate.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="project">
+        <h3>SQL AND RELATIONS DATABASES</h3>
+        <div class="img-frame">
+          <img src="/Bins/image/Certificate-1.png" class="img-fluid" alt="Project Image 2">
+        </div>
+        <p>Indroduction SQL and Relations Databases Certificate.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="project">
+        <h3>FULL STACK DEVELOPMENT CERTIFICATION</h3>
+        <div class="img-frame">
+          <img src="/Bins/image/Full-Stack Cert.png" class="img-fluid" alt="Project Image 2">
+        </div>
+        <p>Full Stack development 101 Certification.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div id="contact" class="container">
+  <h2>Contact</h2>
+  <div class="contact-info">
+    <p><i class="fas fa-envelope"></i> sabanganvince6@gmail.com</p>
+    <p><i class="fas fa-phone"></i> +639691436438</p>
+    <p><a href="https://www.facebook.com/your-facebook-profile" target="_blank" title="Facebook" style="text-decoration: none;"><i class="fab fa-facebook"></i> Stephen Vince</a></p>
+    <p><a href="https://www.instagram.com/your-instagram-profile" target="_blank" title="Instagram" style="text-decoration: none;"><i class="fab fa-instagram"></i> Seutibeun.binseu</a></p>
+  </div>
+</div>
+
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<!-- Font Awesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
 </body>
 </html>
